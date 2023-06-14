@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THOR-ISA: Reasoning Implicit Sentiment with Chain-of-Thought Prompting</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.icon">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">THOR-ISA: Reasoning Implicit Sentiment with Chain-of-Thought Prompting</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://keunhong.com">Hao Fei</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://utkarshsinha.com">Bobo Li</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://jonbarron.info">Qian Liu</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://sofienbouaziz.com">Lidong Bing</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.danbgoldman.com">Fei Li</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://homes.cs.washington.edu/~seitz/">Tat-Seng Chua</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Sea-NExT Joint Lab, National University of Singapore,</span><br>
+            <span class="author-block"><sup>2</sup>Wuhan University,</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>Sea AI Lab,</span>&nbsp;&nbsp;
+            <span class="author-block"><sup>4</sup>DAMO Academy, Alibaba Group</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2305.11255.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2305.11255"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="./static/media/paper-intro-468-recd.mp4"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/scofield7419/THOR-ISA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <!-- Poster Link. -->
+              <span class="link-block">
+              <a href="./static/media/conference_poster_portrait_ACL23_ISA.pdf" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <svg class="svg-inline--fa fa-chalkboard fa-w-20" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M96 64h448v352h64V40c0-22.06-17.94-40-40-40H72C49.94 0 32 17.94 32 40v376h64V64zm528 384H480v-64H288v64H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h608c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg><!-- <i class="fas fa-chalkboard"></i> Font Awesome fontawesome.com -->
+                </span>
+                <span>Poster</span>
+              </a>
+            </span>
+
+              <!-- Dataset Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/google/nerfies/releases/tag/0.1"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="far fa-images"></i>-->
+<!--                  </span>-->
+<!--                  <span>Data</span>-->
+<!--                  </a>                -->
+<!--              </span>-->
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--<section class="hero teaser">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="hero-body">-->
+<!--      <video id="teaser" autoplay muted loop playsinline height="100%">-->
+<!--        <source src="./static/videos/teaser.mp4"-->
+<!--                type="video/mp4">-->
+<!--      </video>-->
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into-->
+<!--        free-viewpoint-->
+<!--        portraits.-->
+<!--      </h2>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<!--<section class="hero is-light is-small">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      <div id="results-carousel" class="carousel results-carousel">-->
+<!--        <div class="item item-steve">-->
+<!--          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/steve.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-chair-tp">-->
+<!--          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/chair-tp.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-shiba">-->
+<!--          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/shiba.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-fullbody">-->
+<!--          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/fullbody.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-blueshirt">-->
+<!--          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/blueshirt.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-mask">-->
+<!--          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/mask.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-coffee">-->
+<!--          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/coffee.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-toby">-->
+<!--          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">-->
+<!--            <source src="./static/videos/toby2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            While sentiment analysis systems try to determine the sentiment polarities of given targets based on the key opinion expressions in input texts, in implicit sentiment analysis (ISA) the opinion cues come in an implicit and obscure manner.
+            Thus detecting implicit sentiment requires the common-sense and multi-hop reasoning ability to infer the latent intent of opinion.
+            Inspired by the recent chain-of-thought (CoT) idea, in this work we introduce a Three-hop Reasoning (THOR) CoT framework to mimic the human-like reasoning process for ISA. We design a three-step prompting principle for THOR to step-by-step induce the implicit aspect, opinion, and finally the sentiment polarity.
+            Our THOR+Flan-T5 (11B) pushes the state-of-the-art (SoTA) by over 6% F1 on supervised setup.
+            More strikingly, THOR+GPT3 (175B) boosts the SoTA by over 50% F1 on zero-shot setting.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Presentation</h2>
+        <div class="publication-video">
+          <video  controls playsinline height="100%">
+              <source src="./static/media/paper-intro-468-recd.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper intro. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Motivation</h2>
+          <p style="text-align:left">
+            Here is the illustration of detecting the explicit and implicit sentiment polarities towards targets.
+            Explicit opinion expression can help direct inference of the sentiment, while detecting implicit sentiment requires common-sense and multi-hop reasoning.
+          </p><br>
+        <div class="publication-video">
+          <img width="80%" src="./static/images/intro.png">
+        </div>
+      </div>
+    </div>
+    <!--/ Paper intro. -->
+  </div>
+</section>
+
+
+
+<section class="section" style="margin-top: -120px">
+  <div class="container is-max-desktop">
+    <!-- Paper method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+          <p style="text-align:left">
+            We thus propose a Three-hop Reasoning CoT framework, namely THOR.
+          </p><br>
+        <div class="publication-image">
+          <img width="100%" src="./static/images/method.png">
+        </div>
+        <br>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+    <!--        <h2 class="title is-3"></h2>-->
+            <div class="publication-image" style="text-align:left">
+              <b>Step 1.</b>  We first ask LLM what aspect a is mentioned with the following template: <br>
+              <center><img  width="60%" src="./static/images/prompt1.png"></center>
+              <p style="text-align:justify"> C<sub>1</sub> is the first-hop prompt context. This step can be formulated as A=argmaxp(a|X, t), where A is the output text which explicitly mentions the aspect a.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+    <!--        <h2 class="title is-3"></h2>-->
+            <div class="publication-image" style="text-align:left">
+              <b>Step 2.</b>  Now based on X, t and a, we ask LLM to answer in detail what would be the underlying opinion o towards the mentioned aspect a: <br>
+              <center><img  width="60%" src="./static/images/prompt2.png"></center>
+              <p style="text-align:justify"> C<sub>2</sub> is the second-hop prompt context which concatenates C1 and A.
+This step can be written as O=argmaxp(o|X, t, a), where O is the answer text containing the possible opinion expression o.</div>
+          </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+    <!--        <h2 class="title is-3"></h2>-->
+            <div class="publication-image" style="text-align:left">
+              <b>Step 3.</b>  With the complete sentiment skeleton (X, t, a and o) as context, we finally ask LLM to infer the final answer of polarity t: <br>
+              <center><img  width="60%" src="./static/images/prompt3.png"></center>
+              <p style="text-align:justify"> C<sub>3</sub> is the third-hop prompt context. We note this step as y=argmaxp(y|X, t, a, o).</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Paper method. -->
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="section" style="margin-top: 0px">
+  <div class="container is-max-desktop">
+    <!-- Paper Experiment. -->
+    <div class="columns is-centered has-text-centered">
+
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experiment</h2>
+          <p style="text-align:left">
+            <b>Main results.</b>  Here are the performances on supervised and zero-shot settings:
+          </p><br>
+        <div class="publication-image">
+          <center><img width="100%" src="./static/images/main-result.png"></center>
+        </div>
+        <br>
+
+      <div class="column is-four-fifths" style="width: 100%" >
+          <p style="text-align:left">
+            <b>Some analyses.</b>
+          </p><br>
+        <div class="publication-image">
+          <center><img width="100%" src="./static/images/analysis.png"></center>
+        </div>
+        </div>
+      </div>
+      </div>
+    <!--/ Paper method. -->
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section" style="margin-top: 0px">
+  <div class="container is-max-desktop">
+    <!-- Paper Case. -->
+    <div class="columns is-centered has-text-centered">
+
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Demos</h2>
+          <p style="text-align:left">
+            <b>Some Comparisons</b> between THOR and the vanilla prompting method, and the zero-shot CoT method (Prompt + ‘Lets think step by step’).
+          </p><br>
+
+        <p class="title is-3" style="font-size: 25px">&#8226; Case-I</p>
+
+        <p style="text-align:left">
+            <b>&#8226; Vanilla prompt-based result:</b>
+          </p>
+        <div class="publication-image">
+          <center><img width="90%" src="./static/images/case1-prompt.png"></center>
+        </div>
+
+        <p style="text-align:left">
+            <b>&#8226; Result by zero-shot CoT method:</b>
+          </p>
+        <div class="publication-image">
+          <center><img width="90%" src="./static/images/case1-ZeroCoT.png"></center>
+        </div>
+
+        <p style="text-align:left">
+            <b>&#8226; Result by our THOR method:</b>
+          </p>
+        <div class="publication-image">
+          <center><img width="90%" src="./static/images/case1-THOR.png"></center>
+        </div>
+
+
+        <p class="title is-3" style="font-size: 25px">&#8226; Case-2</p>
+
+        <p style="text-align:left">
+            <b>&#8226; Vanilla prompt-based result:</b>
+          </p>
+        <div class="publication-image">
+          <center><img width="90%" src="./static/images/case2-prompt.png"></center>
+        </div>
+
+        <p style="text-align:left">
+            <b>&#8226; Result by zero-shot CoT method:</b>
+          </p>
+        <div class="publication-image">
+          <center><img width="90%" src="./static/images/case2-ZeroCoT.png"></center>
+        </div>
+
+        <p style="text-align:left">
+            <b>&#8226; Result by our THOR method:</b>
+          </p>
+        <div class="publication-image">
+          <center><img width="90%" src="./static/images/case2-THOR.png"></center>
+        </div>
+
+      </div>
+      </div>
+    <!--/ Paper method. -->
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper poster. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Poster</h2>
+        <div class="publication-image">
+          <object data="./static/media/conference_poster_portrait_ACL23_ISA.pdf" type="application/pdf" width="100%" height="1120px"></object>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper poster. -->
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{FeiAcl23THOR,
+  author    = {Hao Fei, Bobo Li, Qian Liu, Lidong Bing, Fei Li, Tat-Seng Chua},
+  title     = {Reasoning Implicit Sentiment with Chain-of-Thought Prompting},
+  journal   = {Proceedings of the Annual Meeting of the Association for Computational Linguistics},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+<!--    <div class="content has-text-centered">-->
+<!--      <a class="icon-link"-->
+<!--         href="./static/videos/nerfies_paper.pdf">-->
+<!--        <i class="fas fa-file-pdf"></i>-->
+<!--      </a>-->
+<!--      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>-->
+<!--        <i class="fab fa-github"></i>-->
+<!--      </a>-->
+<!--    </div>-->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            The website template credit to <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+            licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 License</a>.
+          </p>
+<!--          <p>-->
+<!--            This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,-->
+<!--            we just ask that you link back to this page in the footer.-->
+<!--            Please remember to remove the analytics code included in the header of the website which-->
+<!--            you do not want on your website.-->
+<!--          </p>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
