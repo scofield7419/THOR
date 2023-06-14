@@ -2,7 +2,7 @@
 
 This is the repository of the project homepage: ACL 2023, Reasoning Implicit Sentiment with Chain-of-Thought Prompting.
 
-Visit here: [THOR-ISA](https://haofei.vip/THOR-ISA)
+Visit here: [THOR-ISA](https://haofei.vip/THOR)
 
 
 # Website License
